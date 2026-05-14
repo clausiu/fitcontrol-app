@@ -2,6 +2,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial load
     loadView('dashboard');
     
+    // --- Mobile Menu Toggle ---
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            sidebarOverlay.classList.toggle('active');
+        });
+    }
+
+    if (sidebarOverlay) {
+        sidebarOverlay.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+        });
+    }
+
     // Global Modals - Initialize once
     setupModal('addMemberModal', 'openAddMemberModal', 'closeModalBtn', 'cancelModalBtn');
     setupModal('addStaffModal', 'openAddStaffModal', 'closeStaffModalBtn', 'cancelStaffModalBtn');
@@ -109,11 +128,19 @@ window.calculatePayroll = function() {
 window.loadView = async function(view, navElement = null) {
     const contentArea = document.getElementById('app-content');
     const pageTitle = document.getElementById('pageTitle');
+    const sidebar = document.getElementById('sidebar');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
     
     if (navElement) {
         document.querySelectorAll('.sidebar-nav .nav-item').forEach(el => el.classList.remove('active'));
         navElement.classList.add('active');
         pageTitle.innerText = navElement.querySelector('span').innerText;
+
+        // Close sidebar on mobile
+        if (window.innerWidth <= 768) {
+            sidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+        }
     }
 
     contentArea.classList.add('view-leave');

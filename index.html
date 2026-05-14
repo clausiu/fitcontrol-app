@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
     <div class="app-container">
         <!-- Sidebar -->
-        <aside class="sidebar">
+        <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <i class="fa-solid fa-dumbbell"></i>
                 <span>FitControl</span>
@@ -47,7 +48,10 @@
         <main class="main-content">
             <!-- Top Bar -->
             <header class="top-bar">
-                <div class="page-title" id="pageTitle">Dashboard</div>
+                <div style="display: flex; align-items: center; gap: 16px;">
+                    <i class="fa-solid fa-bars menu-toggle" id="mobileMenuBtn"></i>
+                    <div class="page-title" id="pageTitle">Dashboard</div>
+                </div>
                 <div class="top-bar-actions">
                     <button class="btn-primary" id="openAddMemberModal">
                         <i class="fa-solid fa-plus"></i> Membru Nou
@@ -279,6 +283,6 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
-    <script src="js/app.js?v=1778792327"></script>
+    <script src="js/app.js?v=1778792543"></script>
 </body>
 </html>

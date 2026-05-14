@@ -653,3 +653,123 @@ tr:hover td {
     padding: 4px 10px;
     border-radius: 20px;
 }
+/* --- RESPONSIVE DESIGN (Smartphone Conversion) --- */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        overflow-y: auto;
+    }
+
+    .sidebar {
+        position: fixed;
+        left: -260px;
+        top: 0;
+        bottom: 0;
+        z-index: 1000;
+        transition: left 0.3s ease;
+        width: 260px;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 999;
+    }
+
+    .sidebar-overlay.active {
+        display: block;
+    }
+
+    .main-content {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .top-bar {
+        padding: 0 16px;
+        gap: 10px;
+    }
+
+    .top-bar .page-title {
+        font-size: 16px;
+    }
+
+    .top-bar-actions {
+        gap: 10px;
+    }
+
+    .btn-primary {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    .btn-primary span {
+        display: none; /* Ascundem textul "Membru Nou" pe mobile mici */
+    }
+
+    .user-profile span {
+        display: none; /* Ascundem numele pe mobile */
+    }
+
+    /* Hamburger Menu */
+    .menu-toggle {
+        display: block !important;
+        font-size: 20px;
+        cursor: pointer;
+        color: var(--bg-sidebar);
+    }
+
+    .content-wrapper {
+        padding: 16px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .pp-dashboard-container {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .pp-card {
+        padding: 16px;
+    }
+
+    .pp-value {
+        font-size: 24px;
+    }
+
+    .table-container {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 600px;
+    }
+
+    .modal {
+        width: 95%;
+        margin: 10px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+}
+
+/* Add menu toggle to top bar if not present */
+.menu-toggle {
+    display: none;
+}
