@@ -1,0 +1,328 @@
+<br />
+<font size='1'><table class='xdebug-error xe-notice' dir='ltr' border='1' cellspacing='0' cellpadding='1'>
+<tr><th align='left' bgcolor='#f57900' colspan="5"><span style='background-color: #cc0000; color: #fce94f; font-size: x-large;'>( ! )</span> Notice: session_start(): Ignoring session_start() because a session is already active (started from C:\wamp64\www\FITNES_APP\api\export_static.php on line 2) in C:\wamp64\www\FITNES_APP\includes\auth.php on line <i>2</i></th></tr>
+<tr><th align='left' bgcolor='#e9b96e' colspan='5'>Call Stack</th></tr>
+<tr><th align='center' bgcolor='#eeeeec'>#</th><th align='left' bgcolor='#eeeeec'>Time</th><th align='left' bgcolor='#eeeeec'>Memory</th><th align='left' bgcolor='#eeeeec'>Function</th><th align='left' bgcolor='#eeeeec'>Location</th></tr>
+<tr><td bgcolor='#eeeeec' align='center'>1</td><td bgcolor='#eeeeec' align='center'>0.0000</td><td bgcolor='#eeeeec' align='right'>447720</td><td bgcolor='#eeeeec'>{main}(  )</td><td title='C:\wamp64\www\FITNES_APP\api\export_static.php' bgcolor='#eeeeec'>...\export_static.php<b>:</b>0</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>2</td><td bgcolor='#eeeeec' align='center'>0.0755</td><td bgcolor='#eeeeec' align='right'>881984</td><td bgcolor='#eeeeec'>include( <font color='#00bb00'>'C:\wamp64\www\FITNES_APP\index.php</font> )</td><td title='C:\wamp64\www\FITNES_APP\api\export_static.php' bgcolor='#eeeeec'>...\export_static.php<b>:</b>51</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>3</td><td bgcolor='#eeeeec' align='center'>0.0755</td><td bgcolor='#eeeeec' align='right'>882272</td><td bgcolor='#eeeeec'>require_once( <font color='#00bb00'>'C:\wamp64\www\FITNES_APP\includes\auth.php</font> )</td><td title='C:\wamp64\www\FITNES_APP\index.php' bgcolor='#eeeeec'>...\index.php<b>:</b>2</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>4</td><td bgcolor='#eeeeec' align='center'>0.0755</td><td bgcolor='#eeeeec' align='right'>882272</td><td bgcolor='#eeeeec'><a href='http://www.php.net/function.session-start' target='_new'>session_start</a>(  )</td><td title='C:\wamp64\www\FITNES_APP\includes\auth.php' bgcolor='#eeeeec'>...\auth.php<b>:</b>2</td></tr>
+</table></font>
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - FitControl</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <i class="fa-solid fa-dumbbell"></i>
+                <span>FitControl</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" onclick="loadView('dashboard', this); return false;">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item" onclick="loadView('members', this); return false;">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Membri</span>
+                </a>
+                                <a href="#" class="nav-item" onclick="loadView('staff', this); return false;">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <span>Angajați</span>
+                </a>
+                <a href="#" class="nav-item" onclick="loadView('plans', this); return false;">
+                    <i class="fa-solid fa-tags"></i>
+                    <span>Abonamente</span>
+                </a>
+                <a href="#" class="nav-item" onclick="loadView('billing', this); return false;">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <span>Financiar</span>
+                </a>
+                <a href="#" class="nav-item" style="margin-top: auto;" onclick="loadView('settings', this); return false;">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Setări</span>
+                </a>
+                            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="page-title" id="pageTitle">Dashboard</div>
+                <div class="top-bar-actions">
+                    <button class="btn-primary" id="openAddMemberModal">
+                        <i class="fa-solid fa-plus"></i> Membru Nou
+                    </button>
+                    <div class="user-profile">
+                        <span class="avatar"><br />
+<font size='1'><table class='xdebug-error xe-warning' dir='ltr' border='1' cellspacing='0' cellpadding='1'>
+<tr><th align='left' bgcolor='#f57900' colspan="5"><span style='background-color: #cc0000; color: #fce94f; font-size: x-large;'>( ! )</span> Warning: Undefined array key "username" in C:\wamp64\www\FITNES_APP\index.php on line <i>111</i></th></tr>
+<tr><th align='left' bgcolor='#e9b96e' colspan='5'>Call Stack</th></tr>
+<tr><th align='center' bgcolor='#eeeeec'>#</th><th align='left' bgcolor='#eeeeec'>Time</th><th align='left' bgcolor='#eeeeec'>Memory</th><th align='left' bgcolor='#eeeeec'>Function</th><th align='left' bgcolor='#eeeeec'>Location</th></tr>
+<tr><td bgcolor='#eeeeec' align='center'>1</td><td bgcolor='#eeeeec' align='center'>0.0000</td><td bgcolor='#eeeeec' align='right'>447720</td><td bgcolor='#eeeeec'>{main}(  )</td><td title='C:\wamp64\www\FITNES_APP\api\export_static.php' bgcolor='#eeeeec'>...\export_static.php<b>:</b>0</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>2</td><td bgcolor='#eeeeec' align='center'>0.0755</td><td bgcolor='#eeeeec' align='right'>881984</td><td bgcolor='#eeeeec'>include( <font color='#00bb00'>'C:\wamp64\www\FITNES_APP\index.php</font> )</td><td title='C:\wamp64\www\FITNES_APP\api\export_static.php' bgcolor='#eeeeec'>...\export_static.php<b>:</b>51</td></tr>
+</table></font>
+<br />
+<font size='1'><table class='xdebug-error xe-deprecated' dir='ltr' border='1' cellspacing='0' cellpadding='1'>
+<tr><th align='left' bgcolor='#f57900' colspan="5"><span style='background-color: #cc0000; color: #fce94f; font-size: x-large;'>( ! )</span> Deprecated: substr(): Passing null to parameter #1 ($string) of type string is deprecated in C:\wamp64\www\FITNES_APP\index.php on line <i>111</i></th></tr>
+<tr><th align='left' bgcolor='#e9b96e' colspan='5'>Call Stack</th></tr>
+<tr><th align='center' bgcolor='#eeeeec'>#</th><th align='left' bgcolor='#eeeeec'>Time</th><th align='left' bgcolor='#eeeeec'>Memory</th><th align='left' bgcolor='#eeeeec'>Function</th><th align='left' bgcolor='#eeeeec'>Location</th></tr>
+<tr><td bgcolor='#eeeeec' align='center'>1</td><td bgcolor='#eeeeec' align='center'>0.0000</td><td bgcolor='#eeeeec' align='right'>447720</td><td bgcolor='#eeeeec'>{main}(  )</td><td title='C:\wamp64\www\FITNES_APP\api\export_static.php' bgcolor='#eeeeec'>...\export_static.php<b>:</b>0</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>2</td><td bgcolor='#eeeeec' align='center'>0.0755</td><td bgcolor='#eeeeec' align='right'>881984</td><td bgcolor='#eeeeec'>include( <font color='#00bb00'>'C:\wamp64\www\FITNES_APP\index.php</font> )</td><td title='C:\wamp64\www\FITNES_APP\api\export_static.php' bgcolor='#eeeeec'>...\export_static.php<b>:</b>51</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>3</td><td bgcolor='#eeeeec' align='center'>0.0845</td><td bgcolor='#eeeeec' align='right'>889920</td><td bgcolor='#eeeeec'><a href='http://www.php.net/function.substr' target='_new'>substr</a>( <span>$string = </span><span>NULL</span>, <span>$offset = </span><span>0</span>, <span>$length = </span><span>1</span> )</td><td title='C:\wamp64\www\FITNES_APP\index.php' bgcolor='#eeeeec'>...\index.php<b>:</b>111</td></tr>
+</table></font>
+</span>
+                        <span><br />
+<font size='1'><table class='xdebug-error xe-warning' dir='ltr' border='1' cellspacing='0' cellpadding='1'>
+<tr><th align='left' bgcolor='#f57900' colspan="5"><span style='background-color: #cc0000; color: #fce94f; font-size: x-large;'>( ! )</span> Warning: Undefined array key "username" in C:\wamp64\www\FITNES_APP\index.php on line <i>112</i></th></tr>
+<tr><th align='left' bgcolor='#e9b96e' colspan='5'>Call Stack</th></tr>
+<tr><th align='center' bgcolor='#eeeeec'>#</th><th align='left' bgcolor='#eeeeec'>Time</th><th align='left' bgcolor='#eeeeec'>Memory</th><th align='left' bgcolor='#eeeeec'>Function</th><th align='left' bgcolor='#eeeeec'>Location</th></tr>
+<tr><td bgcolor='#eeeeec' align='center'>1</td><td bgcolor='#eeeeec' align='center'>0.0000</td><td bgcolor='#eeeeec' align='right'>447720</td><td bgcolor='#eeeeec'>{main}(  )</td><td title='C:\wamp64\www\FITNES_APP\api\export_static.php' bgcolor='#eeeeec'>...\export_static.php<b>:</b>0</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>2</td><td bgcolor='#eeeeec' align='center'>0.0755</td><td bgcolor='#eeeeec' align='right'>881984</td><td bgcolor='#eeeeec'>include( <font color='#00bb00'>'C:\wamp64\www\FITNES_APP\index.php</font> )</td><td title='C:\wamp64\www\FITNES_APP\api\export_static.php' bgcolor='#eeeeec'>...\export_static.php<b>:</b>51</td></tr>
+</table></font>
+<br />
+<font size='1'><table class='xdebug-error xe-deprecated' dir='ltr' border='1' cellspacing='0' cellpadding='1'>
+<tr><th align='left' bgcolor='#f57900' colspan="5"><span style='background-color: #cc0000; color: #fce94f; font-size: x-large;'>( ! )</span> Deprecated: htmlspecialchars(): Passing null to parameter #1 ($string) of type string is deprecated in C:\wamp64\www\FITNES_APP\index.php on line <i>112</i></th></tr>
+<tr><th align='left' bgcolor='#e9b96e' colspan='5'>Call Stack</th></tr>
+<tr><th align='center' bgcolor='#eeeeec'>#</th><th align='left' bgcolor='#eeeeec'>Time</th><th align='left' bgcolor='#eeeeec'>Memory</th><th align='left' bgcolor='#eeeeec'>Function</th><th align='left' bgcolor='#eeeeec'>Location</th></tr>
+<tr><td bgcolor='#eeeeec' align='center'>1</td><td bgcolor='#eeeeec' align='center'>0.0000</td><td bgcolor='#eeeeec' align='right'>447720</td><td bgcolor='#eeeeec'>{main}(  )</td><td title='C:\wamp64\www\FITNES_APP\api\export_static.php' bgcolor='#eeeeec'>...\export_static.php<b>:</b>0</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>2</td><td bgcolor='#eeeeec' align='center'>0.0755</td><td bgcolor='#eeeeec' align='right'>881984</td><td bgcolor='#eeeeec'>include( <font color='#00bb00'>'C:\wamp64\www\FITNES_APP\index.php</font> )</td><td title='C:\wamp64\www\FITNES_APP\api\export_static.php' bgcolor='#eeeeec'>...\export_static.php<b>:</b>51</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>3</td><td bgcolor='#eeeeec' align='center'>0.0860</td><td bgcolor='#eeeeec' align='right'>889920</td><td bgcolor='#eeeeec'><a href='http://www.php.net/function.htmlspecialchars' target='_new'>htmlspecialchars</a>( <span>$string = </span><span>NULL</span> )</td><td title='C:\wamp64\www\FITNES_APP\index.php' bgcolor='#eeeeec'>...\index.php<b>:</b>112</td></tr>
+</table></font>
+</span>
+                        <a href="login.html" title="Deconectare" style="margin-left: 10px; color: var(--text-muted);"><i class="fa-solid fa-right-from-bracket"></i></a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dynamic Content Area -->
+            <div class="content-wrapper" id="app-content">
+                <!-- Se va incarca dashboard.php la pornire -->
+                <div style="text-align: center; margin-top: 50px; color: var(--text-muted);">
+                    <i class="fa-solid fa-circle-notch fa-spin fa-2x"></i>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Member Modal (Globally Accessible) -->
+    <div class="modal-overlay" id="addMemberModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Adaugă Membru Nou</h2>
+                <button class="close-modal" id="closeModalBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addMemberForm">
+                    <div class="form-group">
+                        <label>Prenume</label>
+                        <input type="text" name="first_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Nume</label>
+                        <input type="text" name="last_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Telefon</label>
+                        <input type="text" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label>Abonament</label>
+                        <select name="membership_id" required>
+                            <option value="">Alege abonament...</option>
+                                                            <option value="1">Basic - 1 Lună - 150.00 RON</option>
+                                                            <option value="2">Premium - 3 Luni - 400.00 RON</option>
+                                                            <option value="3">VIP - 12 Luni - 1200.00 RON</option>
+                                                    </select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" id="cancelModalBtn">Renunță</button>
+                        <button type="submit" class="btn-primary">Salvează Membru</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Member Profile Modal Component (Global) -->
+    <div class="modal-overlay" id="profileModal">
+        <div class="modal" style="max-width: 600px;">
+            <div class="modal-header">
+                <h2>Profil Membru</h2>
+                <button class="close-modal" id="closeProfileModalBtn">&times;</button>
+            </div>
+            <div class="modal-body" id="profileModalContent">
+                <!-- Loaded via AJAX -->
+                <div style="text-align: center; color: var(--text-muted);"><i class="fa-solid fa-circle-notch fa-spin"></i> Se încarcă...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Staff Modal -->
+    <div class="modal-overlay" id="addStaffModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Adaugă Angajat Nou</h2>
+                <button class="close-modal" id="closeStaffModalBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addStaffForm">
+                    <div style="display: flex; gap: 16px;">
+                        <div class="form-group" style="flex: 1;">
+                            <label>Prenume</label>
+                            <input type="text" name="first_name" required>
+                        </div>
+                        <div class="form-group" style="flex: 1;">
+                            <label>Nume</label>
+                            <input type="text" name="last_name" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Funcție / Rol</label>
+                        <select name="role" required>
+                            <option value="">Alege rolul...</option>
+                            <option value="Antrenor Personal">Antrenor Personal</option>
+                            <option value="Recepționist">Recepționist</option>
+                            <option value="Manager">Manager</option>
+                            <option value="Mentenanță">Mentenanță</option>
+                        </select>
+                    </div>
+                    <div style="display: flex; gap: 16px;">
+                        <div class="form-group" style="flex: 1;">
+                            <label>Email</label>
+                            <input type="email" name="email" required>
+                        </div>
+                        <div class="form-group" style="flex: 1;">
+                            <label>Telefon</label>
+                            <input type="text" name="phone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Data Angajării</label>
+                        <input type="date" name="hire_date" required value="2026-05-14">
+                    </div>
+                    <div style="display: flex; gap: 16px;">
+                        <div class="form-group" style="flex: 1;">
+                            <label>Salariu Brut (RON)</label>
+                            <input type="number" name="gross_salary" required min="0">
+                        </div>
+                        <div class="form-group" style="flex: 1;">
+                            <label>Comision PT (RON/Ședință)</label>
+                            <input type="number" name="pt_commission_rate" value="0" min="0">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" id="cancelStaffModalBtn">Renunță</button>
+                        <button type="submit" class="btn-primary">Salvează Angajat</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Book Session Modal -->
+    <div class="modal-overlay" id="bookSessionModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Programează Antrenament</h2>
+                <button class="close-modal" id="closeBookSessionModalBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="bookSessionForm">
+                    <div class="form-group">
+                        <label>Antrenor Personal</label>
+                        <select name="trainer_id" required>
+                            <option value="">Alege antrenor...</option>
+                                                            <option value="3">Mihai Radu</option>
+                                                            <option value="4">Elena Stan</option>
+                                                    </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Membru (Client)</label>
+                        <select name="member_id" required>
+                            <option value="">Alege client...</option>
+                                                            <option value="1">Maria Matei</option>
+                                                            <option value="2">Mihai Ionescu</option>
+                                                            <option value="3">Andrei Stoica</option>
+                                                            <option value="4">Diana Ciobanu</option>
+                                                            <option value="5">Mihai Radu</option>
+                                                            <option value="6">Vasile Ciobanu</option>
+                                                            <option value="7">Maria Stan</option>
+                                                            <option value="8">Vasile Ciobanu</option>
+                                                            <option value="9">Maria Gheorghe</option>
+                                                            <option value="10">Vasile Ciobanu</option>
+                                                            <option value="11">Elena Dumitru</option>
+                                                            <option value="13">Elena Matei</option>
+                                                            <option value="15">Ioana Stoica</option>
+                                                            <option value="16">Maria Popescu</option>
+                                                            <option value="17">Ioana Ciobanu</option>
+                                                            <option value="18">Vasile Dumitru</option>
+                                                            <option value="19">Andrei Popescu</option>
+                                                            <option value="20">Elena Gheorghe</option>
+                                                            <option value="21">Elena Ionescu</option>
+                                                            <option value="22">Vasile Stan</option>
+                                                            <option value="23">Vasile Matei</option>
+                                                            <option value="25">Andrei Stan</option>
+                                                            <option value="26">Elena Gheorghe</option>
+                                                            <option value="27">Andrei Gheorghe</option>
+                                                            <option value="28">Vasile Gheorghe</option>
+                                                            <option value="29">Elena Dumitru</option>
+                                                            <option value="30">Ion Popescu</option>
+                                                            <option value="31">Vasile Popescu</option>
+                                                            <option value="32">Maria Popescu</option>
+                                                            <option value="33">Ion Marin</option>
+                                                            <option value="34">Diana Radu</option>
+                                                            <option value="35">Ion Stoica</option>
+                                                            <option value="36">Andrei Matei</option>
+                                                            <option value="37">Andrei Matei</option>
+                                                            <option value="38">Andrei Radu</option>
+                                                            <option value="39">Ioana Stan</option>
+                                                            <option value="40">Diana Stan</option>
+                                                            <option value="42">Maria Radu</option>
+                                                            <option value="43">Mihai Dumitru</option>
+                                                            <option value="46">Elena Marin</option>
+                                                            <option value="49">Elena Stoica</option>
+                                                            <option value="50">Vasile Radu</option>
+                                                            <option value="51">Adelin Dumbrava</option>
+                                                            <option value="52">Claudiu Deatc</option>
+                                                            <option value="53">TEST TEST</option>
+                                                    </select>
+                    </div>
+                    <div style="display: flex; gap: 16px;">
+                        <div class="form-group" style="flex: 1;">
+                            <label>Data</label>
+                            <input type="date" name="date" required min="2026-05-14">
+                        </div>
+                        <div class="form-group" style="flex: 1;">
+                            <label>Ora de început</label>
+                            <input type="time" name="time" required>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" id="cancelBookSessionModalBtn">Renunță</button>
+                        <button type="submit" class="btn-primary">Salvează Programarea</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+    <script src="js/app.js?v=1778791619"></script>
+</body>
+</html>

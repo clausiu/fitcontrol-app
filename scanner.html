@@ -1,0 +1,226 @@
+<br />
+<font size='1'><table class='xdebug-error xe-notice' dir='ltr' border='1' cellspacing='0' cellpadding='1'>
+<tr><th align='left' bgcolor='#f57900' colspan="5"><span style='background-color: #cc0000; color: #fce94f; font-size: x-large;'>( ! )</span> Notice: session_start(): Ignoring session_start() because a session is already active (started from C:\wamp64\www\FITNES_APP\api\export_static.php on line 2) in C:\wamp64\www\FITNES_APP\scanner.php on line <i>2</i></th></tr>
+<tr><th align='left' bgcolor='#e9b96e' colspan='5'>Call Stack</th></tr>
+<tr><th align='center' bgcolor='#eeeeec'>#</th><th align='left' bgcolor='#eeeeec'>Time</th><th align='left' bgcolor='#eeeeec'>Memory</th><th align='left' bgcolor='#eeeeec'>Function</th><th align='left' bgcolor='#eeeeec'>Location</th></tr>
+<tr><td bgcolor='#eeeeec' align='center'>1</td><td bgcolor='#eeeeec' align='center'>0.0000</td><td bgcolor='#eeeeec' align='right'>447720</td><td bgcolor='#eeeeec'>{main}(  )</td><td title='C:\wamp64\www\FITNES_APP\api\export_static.php' bgcolor='#eeeeec'>...\export_static.php<b>:</b>0</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>2</td><td bgcolor='#eeeeec' align='center'>0.0897</td><td bgcolor='#eeeeec' align='right'>940648</td><td bgcolor='#eeeeec'>include( <font color='#00bb00'>'C:\wamp64\www\FITNES_APP\scanner.php</font> )</td><td title='C:\wamp64\www\FITNES_APP\api\export_static.php' bgcolor='#eeeeec'>...\export_static.php<b>:</b>59</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>3</td><td bgcolor='#eeeeec' align='center'>0.0897</td><td bgcolor='#eeeeec' align='right'>940648</td><td bgcolor='#eeeeec'><a href='http://www.php.net/function.session-start' target='_new'>session_start</a>(  )</td><td title='C:\wamp64\www\FITNES_APP\scanner.php' bgcolor='#eeeeec'>...\scanner.php<b>:</b>2</td></tr>
+</table></font>
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scanner Acces - FitControl</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-main: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --primary: #3b82f6;
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+        }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-main);
+            color: var(--text-main);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .scanner-container {
+            background: var(--card-bg);
+            padding: 32px;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .header {
+            margin-bottom: 24px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        .header p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin: 8px 0 0 0;
+        }
+        #reader {
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #000;
+            border: 2px solid #334155;
+        }
+        #reader video {
+            object-fit: cover;
+        }
+        #result-box {
+            margin-top: 24px;
+            padding: 16px;
+            border-radius: 12px;
+            display: none;
+            font-weight: 600;
+            font-size: 16px;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        .result-success {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+        .result-error {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--danger);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+        .result-warning {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--warning);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+        .btn-back {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 20px;
+            transition: color 0.2s;
+        }
+        .btn-back:hover {
+            color: var(--text-main);
+        }
+        /* Hide html5-qrcode default UI elements that are ugly */
+        #reader__dashboard_section_csr span { color: var(--text-main) !important; }
+        #reader__dashboard_section_swaplink { display: none !important; }
+        #reader__dashboard_section_csr button {
+            background: var(--primary) !important;
+            color: white !important;
+            border: none !important;
+            padding: 8px 16px !important;
+            border-radius: 6px !important;
+            cursor: pointer !important;
+            font-family: inherit !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="scanner-container">
+        <a href="index.html" class="btn-back" title="Înapoi la Dashboard"><i class="fa-solid fa-arrow-left"></i></a>
+        
+        <div class="header">
+            <h1><i class="fa-solid fa-expand"></i> Scanare Acces</h1>
+            <p>Așează codul QR al membrului în fața camerei.</p>
+        </div>
+
+        <div id="reader"></div>
+
+        <div id="result-box">
+            <i id="result-icon" class="fa-solid"></i>
+            <span id="result-text">Membru validat cu succes.</span>
+        </div>
+    </div>
+
+    <!-- Audio for feedback -->
+    <audio id="beep-success" src="https://assets.mixkit.co/active_storage/sfx/212/212-preview.mp3" preload="auto"></audio>
+    <audio id="beep-error" src="https://assets.mixkit.co/active_storage/sfx/238/238-preview.mp3" preload="auto"></audio>
+
+    <!-- HTML5 QRCode Scanner -->
+    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+    <script>
+        const resultBox = document.getElementById('result-box');
+        const resultText = document.getElementById('result-text');
+        const resultIcon = document.getElementById('result-icon');
+        const beepSuccess = document.getElementById('beep-success');
+        const beepError = document.getElementById('beep-error');
+        
+        let isScanningAllowed = true;
+
+        function showResult(status, message) {
+            resultBox.style.display = 'flex';
+            resultBox.className = ''; // reset
+            resultIcon.className = 'fa-solid '; // reset
+            
+            if(status === 'success') {
+                resultBox.classList.add('result-success');
+                resultIcon.classList.add('fa-check-circle');
+                beepSuccess.play().catch(e => console.log('Audio play failed', e));
+            } else if (status === 'warning') {
+                resultBox.classList.add('result-warning');
+                resultIcon.classList.add('fa-triangle-exclamation');
+                beepError.play().catch(e => console.log('Audio play failed', e));
+            } else {
+                resultBox.classList.add('result-error');
+                resultIcon.classList.add('fa-circle-xmark');
+                beepError.play().catch(e => console.log('Audio play failed', e));
+            }
+            
+            resultText.innerText = message;
+        }
+
+        async function onScanSuccess(decodedText, decodedResult) {
+            if(!isScanningAllowed) return;
+            
+            // Format check
+            if(!decodedText.startsWith('FITCONTROL_MEMBRU_')) {
+                return; // Ignore other QR codes silently or show error
+            }
+
+            const memberId = decodedText.replace('FITCONTROL_MEMBRU_', '');
+            
+            // Pause scanning to prevent multiple hits
+            isScanningAllowed = false;
+            
+            try {
+                const fd = new FormData();
+                fd.append('member_id', memberId);
+                
+                const res = await fetch('api/process_checkin.php', { method: 'POST', body: fd });
+                const data = await res.json();
+                
+                showResult(data.status, data.message);
+                
+            } catch(e) {
+                showResult('error', 'Eroare de conexiune la server.');
+            }
+
+            // Auto-reset scanner after 3 seconds
+            setTimeout(() => {
+                resultBox.style.display = 'none';
+                isScanningAllowed = true;
+            }, 3000);
+        }
+
+        function onScanFailure(error) {
+            // handle scan failure, usually better to ignore and keep scanning
+        }
+
+        let html5QrcodeScanner = new Html5QrcodeScanner("reader", { 
+            fps: 10, 
+            qrbox: {width: 250, height: 250},
+            aspectRatio: 1.0,
+            showTorchButtonIfSupported: true 
+        }, false);
+        
+        html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+    </script>
+</body>
+</html>

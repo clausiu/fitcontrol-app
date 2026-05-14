@@ -1,0 +1,139 @@
+<br />
+<font size='1'><table class='xdebug-error xe-notice' dir='ltr' border='1' cellspacing='0' cellpadding='1'>
+<tr><th align='left' bgcolor='#f57900' colspan="5"><span style='background-color: #cc0000; color: #fce94f; font-size: x-large;'>( ! )</span> Notice: session_start(): Ignoring session_start() because a session is already active (started from C:\wamp64\www\FITNES_APP\api\export_static.php on line 2) in C:\wamp64\www\FITNES_APP\views\dashboard.php on line <i>2</i></th></tr>
+<tr><th align='left' bgcolor='#e9b96e' colspan='5'>Call Stack</th></tr>
+<tr><th align='center' bgcolor='#eeeeec'>#</th><th align='left' bgcolor='#eeeeec'>Time</th><th align='left' bgcolor='#eeeeec'>Memory</th><th align='left' bgcolor='#eeeeec'>Function</th><th align='left' bgcolor='#eeeeec'>Location</th></tr>
+<tr><td bgcolor='#eeeeec' align='center'>1</td><td bgcolor='#eeeeec' align='center'>0.0000</td><td bgcolor='#eeeeec' align='right'>447720</td><td bgcolor='#eeeeec'>{main}(  )</td><td title='C:\wamp64\www\FITNES_APP\api\export_static.php' bgcolor='#eeeeec'>...\export_static.php<b>:</b>0</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>2</td><td bgcolor='#eeeeec' align='center'>0.0434</td><td bgcolor='#eeeeec' align='right'>542304</td><td bgcolor='#eeeeec'>include( <font color='#00bb00'>'C:\wamp64\www\FITNES_APP\views\dashboard.php</font> )</td><td title='C:\wamp64\www\FITNES_APP\api\export_static.php' bgcolor='#eeeeec'>...\export_static.php<b>:</b>42</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>3</td><td bgcolor='#eeeeec' align='center'>0.0434</td><td bgcolor='#eeeeec' align='right'>542304</td><td bgcolor='#eeeeec'><a href='http://www.php.net/function.session-start' target='_new'>session_start</a>(  )</td><td title='C:\wamp64\www\FITNES_APP\views\dashboard.php' bgcolor='#eeeeec'>...\dashboard.php<b>:</b>2</td></tr>
+</table></font>
+
+<div class="pp-dashboard-container">
+    
+    <!-- LEFT COLUMN: MY DAY -->
+    <div class="pp-column">
+        <h2 class="pp-column-title">My Day</h2>
+        
+        <div class="pp-card" style="margin-bottom: 16px;">
+            <div class="pp-icon-top"><i class="fa-solid fa-user-plus" style="color: #2563eb;"></i></div>
+            <div class="pp-value">3</div>
+            <div class="pp-label">New signups</div>
+        </div>
+        
+        <div class="pp-card" style="margin-bottom: 16px;">
+            <div class="pp-icon-top"><i class="fa-solid fa-clock" style="color: #2563eb;"></i></div>
+            <div class="pp-value">20 Months</div>
+            <div class="pp-label">Average Length of Engagement</div>
+        </div>
+        
+                <h3 class="pp-section-subtitle" style="margin-top: 24px; display: flex; justify-content: space-between;">
+            <span><i class="fa-solid fa-qrcode"></i> Live Check-ins</span>
+            <a href="scanner.php" target="_blank" style="font-size: 12px; color: var(--primary); text-decoration: none;">Deschide Scanner</a>
+        </h3>
+        <div class="pp-at-risk-list" id="liveCheckinsList">
+                                                <div class="pp-at-risk-item">
+                        <div class="pp-at-risk-avatar" style="background-color: var(--primary);">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <div class="pp-at-risk-name">Claudiu Deatc</div>
+                        <div class="pp-at-risk-action" style="color: var(--text-muted); font-size: 12px;">
+                            20:39                        </div>
+                    </div>
+                                    <div class="pp-at-risk-item">
+                        <div class="pp-at-risk-avatar" style="background-color: var(--primary);">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <div class="pp-at-risk-name">Mihai Radu</div>
+                        <div class="pp-at-risk-action" style="color: var(--text-muted); font-size: 12px;">
+                            19:34                        </div>
+                    </div>
+                                    <div class="pp-at-risk-item">
+                        <div class="pp-at-risk-avatar" style="background-color: var(--primary);">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <div class="pp-at-risk-name">Diana Ciobanu</div>
+                        <div class="pp-at-risk-action" style="color: var(--text-muted); font-size: 12px;">
+                            18:34                        </div>
+                    </div>
+                                    <div class="pp-at-risk-item">
+                        <div class="pp-at-risk-avatar" style="background-color: var(--primary);">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <div class="pp-at-risk-name">Andrei Stoica</div>
+                        <div class="pp-at-risk-action" style="color: var(--text-muted); font-size: 12px;">
+                            17:34                        </div>
+                    </div>
+                                    <div class="pp-at-risk-item">
+                        <div class="pp-at-risk-avatar" style="background-color: var(--primary);">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <div class="pp-at-risk-name">Mihai Ionescu</div>
+                        <div class="pp-at-risk-action" style="color: var(--text-muted); font-size: 12px;">
+                            16:34                        </div>
+                    </div>
+                                    </div>
+        
+        <div class="pp-insight-banner" style="margin-top: 24px;">
+            <i class="fa-solid fa-circle-info"></i> FitControl AI Powered Insights: 4 membri necesită atenție.
+        </div>
+        
+        <h3 class="pp-section-subtitle">At-Risk Members</h3>
+        <div class="pp-at-risk-list">
+                        <div class="pp-at-risk-item">
+                <div class="pp-at-risk-avatar" style="background-color: #ec4899;">
+                    VC                </div>
+                <div class="pp-at-risk-name">Vasile Ciobanu</div>
+                <div class="pp-at-risk-days">
+                    6 days                </div>
+            </div>
+                        <div class="pp-at-risk-item">
+                <div class="pp-at-risk-avatar" style="background-color: #10b981;">
+                    ES                </div>
+                <div class="pp-at-risk-name">Elena Stoica</div>
+                <div class="pp-at-risk-days">
+                    6 days                </div>
+            </div>
+                        <div class="pp-at-risk-item">
+                <div class="pp-at-risk-avatar" style="background-color: #2563eb;">
+                    VC                </div>
+                <div class="pp-at-risk-name">Vasile Ciobanu</div>
+                <div class="pp-at-risk-days">
+                    7 days                </div>
+            </div>
+                        <div class="pp-at-risk-item">
+                <div class="pp-at-risk-avatar" style="background-color: #2563eb;">
+                    EM                </div>
+                <div class="pp-at-risk-name">Elena Matei</div>
+                <div class="pp-at-risk-days">
+                    7 days                </div>
+            </div>
+                                </div>
+    </div>
+    
+    <!-- RIGHT COLUMN: FINANCIAL REPORT -->
+    <div class="pp-column">
+        <h2 class="pp-column-title">Financial Report</h2>
+        
+        <div class="pp-card" style="margin-bottom: 16px;">
+            <div class="pp-icon-top"><i class="fa-solid fa-dollar-sign" style="color: #2563eb;"></i></div>
+            <div class="pp-value">17,550 RON</div>
+            <div class="pp-label">Total year to date revenue</div>
+        </div>
+        
+        <div class="pp-card" style="margin-bottom: 16px;">
+            <div class="pp-icon-top"><i class="fa-solid fa-dollar-sign" style="color: #2563eb;"></i></div>
+            <div class="pp-value">5,350 RON</div>
+            <div class="pp-label">Month to Date Revenue</div>
+        </div>
+        
+        <div class="pp-card" style="padding: 24px;">
+            <div class="pp-value" style="font-size: 28px;">1,747 RON</div>
+            <div class="pp-label" style="margin-bottom: 24px;">Life time value (LTV) per member</div>
+            
+            <div style="height: 250px; width: 100%;">
+                <canvas id="ppChart" data-chart='{"labels":["Dec","Jan","Feb","Mar","Apr","May"],"revenue":[900,3050,3050,3600,2500,5350]}'></canvas>
+            </div>
+        </div>
+    </div>
+    
+</div>

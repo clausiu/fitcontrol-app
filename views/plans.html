@@ -1,0 +1,90 @@
+<br />
+<font size='1'><table class='xdebug-error xe-notice' dir='ltr' border='1' cellspacing='0' cellpadding='1'>
+<tr><th align='left' bgcolor='#f57900' colspan="5"><span style='background-color: #cc0000; color: #fce94f; font-size: x-large;'>( ! )</span> Notice: session_start(): Ignoring session_start() because a session is already active (started from C:\wamp64\www\FITNES_APP\api\export_static.php on line 2) in C:\wamp64\www\FITNES_APP\views\plans.php on line <i>2</i></th></tr>
+<tr><th align='left' bgcolor='#e9b96e' colspan='5'>Call Stack</th></tr>
+<tr><th align='center' bgcolor='#eeeeec'>#</th><th align='left' bgcolor='#eeeeec'>Time</th><th align='left' bgcolor='#eeeeec'>Memory</th><th align='left' bgcolor='#eeeeec'>Function</th><th align='left' bgcolor='#eeeeec'>Location</th></tr>
+<tr><td bgcolor='#eeeeec' align='center'>1</td><td bgcolor='#eeeeec' align='center'>0.0000</td><td bgcolor='#eeeeec' align='right'>447720</td><td bgcolor='#eeeeec'>{main}(  )</td><td title='C:\wamp64\www\FITNES_APP\api\export_static.php' bgcolor='#eeeeec'>...\export_static.php<b>:</b>0</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>2</td><td bgcolor='#eeeeec' align='center'>0.0657</td><td bgcolor='#eeeeec' align='right'>724032</td><td bgcolor='#eeeeec'>include( <font color='#00bb00'>'C:\wamp64\www\FITNES_APP\views\plans.php</font> )</td><td title='C:\wamp64\www\FITNES_APP\api\export_static.php' bgcolor='#eeeeec'>...\export_static.php<b>:</b>42</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>3</td><td bgcolor='#eeeeec' align='center'>0.0657</td><td bgcolor='#eeeeec' align='right'>724032</td><td bgcolor='#eeeeec'><a href='http://www.php.net/function.session-start' target='_new'>session_start</a>(  )</td><td title='C:\wamp64\www\FITNES_APP\views\plans.php' bgcolor='#eeeeec'>...\plans.php<b>:</b>2</td></tr>
+</table></font>
+
+<div class="table-container">
+    <div class="table-header" style="display: flex; gap: 16px; justify-content: space-between;">
+        <h2>Tipuri de Abonamente</h2>
+        <button class="btn-primary" id="openAddPlanModal">
+            <i class="fa-solid fa-plus"></i> Abonament Nou
+        </button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Nume Abonament</th>
+                <th>Preț (RON)</th>
+                <th>Durată (Zile)</th>
+                <th>Membri Activi (Aprox)</th>
+                <th>Acțiuni</th>
+            </tr>
+        </thead>
+        <tbody>
+                        <tr>
+                <td style="font-weight: 500;">Basic - 1 Lună</td>
+                <td>150.00 RON</td>
+                <td>30 Zile</td>
+                <td><span class="status active" style="border-radius: 4px; padding: 2px 8px;">16</span></td>
+                <td>
+                    <!-- O simplă alertă de placeholder pt stergere, ar trebui un API real -->
+                    <button class="btn-text text-danger" onclick="alert('Funcționalitate de ștergere/editare abonament în lucru!');"><i class="fa-solid fa-trash"></i> Șterge</button>
+                </td>
+            </tr>
+                        <tr>
+                <td style="font-weight: 500;">Premium - 3 Luni</td>
+                <td>400.00 RON</td>
+                <td>90 Zile</td>
+                <td><span class="status active" style="border-radius: 4px; padding: 2px 8px;">16</span></td>
+                <td>
+                    <!-- O simplă alertă de placeholder pt stergere, ar trebui un API real -->
+                    <button class="btn-text text-danger" onclick="alert('Funcționalitate de ștergere/editare abonament în lucru!');"><i class="fa-solid fa-trash"></i> Șterge</button>
+                </td>
+            </tr>
+                        <tr>
+                <td style="font-weight: 500;">VIP - 12 Luni</td>
+                <td>1,200.00 RON</td>
+                <td>365 Zile</td>
+                <td><span class="status active" style="border-radius: 4px; padding: 2px 8px;">13</span></td>
+                <td>
+                    <!-- O simplă alertă de placeholder pt stergere, ar trebui un API real -->
+                    <button class="btn-text text-danger" onclick="alert('Funcționalitate de ștergere/editare abonament în lucru!');"><i class="fa-solid fa-trash"></i> Șterge</button>
+                </td>
+            </tr>
+                    </tbody>
+    </table>
+</div>
+
+<div class="modal-overlay" id="addPlanModal">
+    <div class="modal">
+        <div class="modal-header">
+            <h2>Adaugă Abonament</h2>
+            <button class="close-modal" id="closePlanModalBtn">&times;</button>
+        </div>
+        <div class="modal-body">
+            <form id="addPlanForm">
+                <div class="form-group">
+                    <label>Nume Abonament</label>
+                    <input type="text" name="name" required placeholder="Ex: Crossfit Lunar">
+                </div>
+                <div class="form-group">
+                    <label>Preț (RON)</label>
+                    <input type="number" step="0.01" name="price" required placeholder="Ex: 250">
+                </div>
+                <div class="form-group">
+                    <label>Durată (Zile)</label>
+                    <input type="number" name="duration_days" required placeholder="Ex: 30">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="cancelPlanModalBtn">Renunță</button>
+                    <button type="submit" class="btn-primary">Salvează</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

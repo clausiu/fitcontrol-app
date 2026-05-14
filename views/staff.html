@@ -1,0 +1,311 @@
+<br />
+<font size='1'><table class='xdebug-error xe-notice' dir='ltr' border='1' cellspacing='0' cellpadding='1'>
+<tr><th align='left' bgcolor='#f57900' colspan="5"><span style='background-color: #cc0000; color: #fce94f; font-size: x-large;'>( ! )</span> Notice: session_start(): Ignoring session_start() because a session is already active (started from C:\wamp64\www\FITNES_APP\api\export_static.php on line 2) in C:\wamp64\www\FITNES_APP\views\staff.php on line <i>2</i></th></tr>
+<tr><th align='left' bgcolor='#e9b96e' colspan='5'>Call Stack</th></tr>
+<tr><th align='center' bgcolor='#eeeeec'>#</th><th align='left' bgcolor='#eeeeec'>Time</th><th align='left' bgcolor='#eeeeec'>Memory</th><th align='left' bgcolor='#eeeeec'>Function</th><th align='left' bgcolor='#eeeeec'>Location</th></tr>
+<tr><td bgcolor='#eeeeec' align='center'>1</td><td bgcolor='#eeeeec' align='center'>0.0000</td><td bgcolor='#eeeeec' align='right'>447720</td><td bgcolor='#eeeeec'>{main}(  )</td><td title='C:\wamp64\www\FITNES_APP\api\export_static.php' bgcolor='#eeeeec'>...\export_static.php<b>:</b>0</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>2</td><td bgcolor='#eeeeec' align='center'>0.0632</td><td bgcolor='#eeeeec' align='right'>873208</td><td bgcolor='#eeeeec'>include( <font color='#00bb00'>'C:\wamp64\www\FITNES_APP\views\staff.php</font> )</td><td title='C:\wamp64\www\FITNES_APP\api\export_static.php' bgcolor='#eeeeec'>...\export_static.php<b>:</b>42</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>3</td><td bgcolor='#eeeeec' align='center'>0.0632</td><td bgcolor='#eeeeec' align='right'>873208</td><td bgcolor='#eeeeec'><a href='http://www.php.net/function.session-start' target='_new'>session_start</a>(  )</td><td title='C:\wamp64\www\FITNES_APP\views\staff.php' bgcolor='#eeeeec'>...\staff.php<b>:</b>2</td></tr>
+</table></font>
+
+<div class="stats-grid" style="margin-bottom: 24px;">
+    <!-- Active Staff -->
+    <div class="stat-card" style="border-left: 4px solid #3b82f6;">
+        <div class="stat-info">
+            <h3>Total Angajați Activi</h3>
+            <div class="value">6</div>
+            <div style="font-size: 13px; color: var(--text-muted); margin-top: 8px;">
+                <i class="fa-solid fa-users"></i> Echipă FitControl
+            </div>
+        </div>
+        <div class="stat-icon" style="background-color: #eff6ff; color: #3b82f6;">
+            <i class="fa-solid fa-user-tie"></i>
+        </div>
+    </div>
+    
+    <!-- Cost Salarizare Curenta -->
+    <div class="stat-card" style="border-left: 4px solid #ef4444;">
+        <div class="stat-info">
+            <h3>Cost Salarizare (Luna Curentă)</h3>
+            <div class="value">25,000 RON</div>
+            <div style="font-size: 13px; color: var(--text-muted); margin-top: 8px;">
+                <i class="fa-solid fa-calculator"></i> Brut + Bonusuri
+            </div>
+        </div>
+        <div class="stat-icon" style="background-color: #fee2e2; color: #ef4444;">
+            <i class="fa-solid fa-money-bill-wave"></i>
+        </div>
+    </div>
+    
+    <!-- Pontaj si Zile libere -->
+    <div class="stat-card" style="border-left: 4px solid #f59e0b;">
+        <div class="stat-info">
+            <h3>Sistem Salarizare</h3>
+            <div class="value" style="font-size: 18px;">Activ & Funcțional</div>
+            <div style="font-size: 13px; color: var(--text-muted); margin-top: 8px;">
+                <i class="fa-solid fa-check-circle"></i> Modul ERP (Cas, Cass, Impozit)
+            </div>
+        </div>
+        <div class="stat-icon" style="background-color: #fef3c7; color: #f59e0b;">
+            <i class="fa-solid fa-file-signature"></i>
+        </div>
+    </div>
+</div>
+
+<div class="table-container">
+    <div class="table-header" style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: space-between;">
+        <h2 style="display: flex; align-items: center;">Gestionează Angajații</h2>
+        <div style="display: flex; gap: 12px; align-items: center;">
+            <select id="staffSort" style="padding: 8px; border: 1px solid var(--border-color); border-radius: 6px; font-family: inherit;">
+                <option value="name-asc">Nume (A-Z)</option>
+                <option value="name-desc">Nume (Z-A)</option>
+                <option value="salary-desc">Salariu (Descrescător)</option>
+                <option value="salary-asc">Salariu (Crescător)</option>
+            </select>
+            <input type="text" id="staffSearchInput" class="search-input" placeholder="Caută angajat..." style="width: 250px;">
+            <button class="btn-primary" id="autoPayBtn" style="background: #10b981;">
+                <i class="fa-solid fa-robot"></i> Plată Automată
+            </button>
+            <button class="btn-primary" id="openBookSessionModal" style="background: #f59e0b; color: white;">
+                <i class="fa-solid fa-calendar-plus"></i> Programare
+            </button>
+            <button class="btn-primary" id="openAddStaffModal">
+                <i class="fa-solid fa-plus"></i> Angajat Nou
+            </button>
+        </div>
+    </div>
+    <table id="staffTable">
+        <thead>
+            <tr>
+                <th>Nume & Funcție</th>
+                <th>Contact</th>
+                <th>Data Angajării</th>
+                <th>Salariu Bază (Brut)</th>
+                <th>Status Plată (May 2026)</th>
+                <th>Acțiuni</th>
+            </tr>
+        </thead>
+        <tbody id="staffTableBody">
+                        <tr class="staff-row" 
+                data-search="ana ionescu recepționist ana.receptie@fitcontrol.ro"
+                data-name="ana ionescu"
+                data-salary="4000.00"
+            >
+                <td>
+                    <div class="member-info">
+                        <div class="member-avatar" style="background: #e0e7ff; color: #3730a3;">AI</div>
+                        <div>
+                            <div class="member-name">Ana Ionescu</div>
+                            <div style="font-size: 11px; font-weight: 600; color: #4b5563; margin-top: 2px;">
+                                <i class="fa-solid fa-briefcase"></i> Recepționist                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>ana.receptie@fitcontrol.ro</div>
+                        <div style="color: var(--text-muted);">0700333444</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">01 Mar 2024</div>
+                </td>
+                <td>
+                    <div style="font-weight: 600; font-size: 15px; color: #111827;">4,000 RON</div>
+                                    </td>
+                <td>
+                                            <span class="status active" style="background: #d1fae5; color: #065f46; border: none;">Salariu Virata</span>
+                                    </td>
+                <td>
+                    <button class="btn-secondary profile-btn-staff" data-id="2" style="padding: 6px 12px; font-size: 12px;">
+                        <i class="fa-solid fa-folder-open"></i> Dosar HR
+                    </button>
+                </td>
+            </tr>
+                        <tr class="staff-row" 
+                data-search="claudiu deatc mentenanță claudiutest@gmail.com"
+                data-name="claudiu deatc"
+                data-salary="8500.00"
+            >
+                <td>
+                    <div class="member-info">
+                        <div class="member-avatar" style="background: #e0e7ff; color: #3730a3;">CD</div>
+                        <div>
+                            <div class="member-name">Claudiu Deatc</div>
+                            <div style="font-size: 11px; font-weight: 600; color: #4b5563; margin-top: 2px;">
+                                <i class="fa-solid fa-briefcase"></i> Mentenanță                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>claudiutest@gmail.com</div>
+                        <div style="color: var(--text-muted);">0788888888</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">14 May 2026</div>
+                </td>
+                <td>
+                    <div style="font-weight: 600; font-size: 15px; color: #111827;">8,500 RON</div>
+                                    </td>
+                <td>
+                                            <span class="status active" style="background: #d1fae5; color: #065f46; border: none;">Salariu Virata</span>
+                                    </td>
+                <td>
+                    <button class="btn-secondary profile-btn-staff" data-id="6" style="padding: 6px 12px; font-size: 12px;">
+                        <i class="fa-solid fa-folder-open"></i> Dosar HR
+                    </button>
+                </td>
+            </tr>
+                        <tr class="staff-row" 
+                data-search="elena stan antrenor personal elena.pt@fitcontrol.ro"
+                data-name="elena stan"
+                data-salary="3500.00"
+            >
+                <td>
+                    <div class="member-info">
+                        <div class="member-avatar" style="background: #e0e7ff; color: #3730a3;">ES</div>
+                        <div>
+                            <div class="member-name">Elena Stan</div>
+                            <div style="font-size: 11px; font-weight: 600; color: #4b5563; margin-top: 2px;">
+                                <i class="fa-solid fa-briefcase"></i> Antrenor Personal                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>elena.pt@fitcontrol.ro</div>
+                        <div style="color: var(--text-muted);">0700777888</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">20 Jun 2024</div>
+                </td>
+                <td>
+                    <div style="font-weight: 600; font-size: 15px; color: #111827;">3,500 RON</div>
+                                            <div style="font-size: 11px; color: #059669; font-weight: 600;">+ 50.00 RON/PT</div>
+                                    </td>
+                <td>
+                                            <span class="status active" style="background: #d1fae5; color: #065f46; border: none;">Salariu Virata</span>
+                                    </td>
+                <td>
+                    <button class="btn-secondary profile-btn-staff" data-id="4" style="padding: 6px 12px; font-size: 12px;">
+                        <i class="fa-solid fa-folder-open"></i> Dosar HR
+                    </button>
+                </td>
+            </tr>
+                        <tr class="staff-row" 
+                data-search="ion popescu manager ion.manager@fitcontrol.ro"
+                data-name="ion popescu"
+                data-salary="8000.00"
+            >
+                <td>
+                    <div class="member-info">
+                        <div class="member-avatar" style="background: #e0e7ff; color: #3730a3;">IP</div>
+                        <div>
+                            <div class="member-name">Ion Popescu</div>
+                            <div style="font-size: 11px; font-weight: 600; color: #4b5563; margin-top: 2px;">
+                                <i class="fa-solid fa-briefcase"></i> Manager                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>ion.manager@fitcontrol.ro</div>
+                        <div style="color: var(--text-muted);">0700111222</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">15 Jan 2024</div>
+                </td>
+                <td>
+                    <div style="font-weight: 600; font-size: 15px; color: #111827;">8,000 RON</div>
+                                    </td>
+                <td>
+                                            <span class="status active" style="background: #d1fae5; color: #065f46; border: none;">Salariu Virata</span>
+                                    </td>
+                <td>
+                    <button class="btn-secondary profile-btn-staff" data-id="1" style="padding: 6px 12px; font-size: 12px;">
+                        <i class="fa-solid fa-folder-open"></i> Dosar HR
+                    </button>
+                </td>
+            </tr>
+                        <tr class="staff-row" 
+                data-search="mihai radu antrenor personal mihai.pt@fitcontrol.ro"
+                data-name="mihai radu"
+                data-salary="3500.00"
+            >
+                <td>
+                    <div class="member-info">
+                        <div class="member-avatar" style="background: #e0e7ff; color: #3730a3;">MR</div>
+                        <div>
+                            <div class="member-name">Mihai Radu</div>
+                            <div style="font-size: 11px; font-weight: 600; color: #4b5563; margin-top: 2px;">
+                                <i class="fa-solid fa-briefcase"></i> Antrenor Personal                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>mihai.pt@fitcontrol.ro</div>
+                        <div style="color: var(--text-muted);">0700555666</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">10 Feb 2024</div>
+                </td>
+                <td>
+                    <div style="font-weight: 600; font-size: 15px; color: #111827;">3,500 RON</div>
+                                            <div style="font-size: 11px; color: #059669; font-weight: 600;">+ 50.00 RON/PT</div>
+                                    </td>
+                <td>
+                                            <span class="status expired" style="background: #fee2e2; color: #991b1b; text-decoration: none; border: none;">Neplătit</span>
+                                    </td>
+                <td>
+                    <button class="btn-secondary profile-btn-staff" data-id="3" style="padding: 6px 12px; font-size: 12px;">
+                        <i class="fa-solid fa-folder-open"></i> Dosar HR
+                    </button>
+                </td>
+            </tr>
+                        <tr class="staff-row" 
+                data-search="vasile marin mentenanță vasile.maint@fitcontrol.ro"
+                data-name="vasile marin"
+                data-salary="3800.00"
+            >
+                <td>
+                    <div class="member-info">
+                        <div class="member-avatar" style="background: #e0e7ff; color: #3730a3;">VM</div>
+                        <div>
+                            <div class="member-name">Vasile Marin</div>
+                            <div style="font-size: 11px; font-weight: 600; color: #4b5563; margin-top: 2px;">
+                                <i class="fa-solid fa-briefcase"></i> Mentenanță                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>vasile.maint@fitcontrol.ro</div>
+                        <div style="color: var(--text-muted);">0700999000</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">05 Jan 2025</div>
+                </td>
+                <td>
+                    <div style="font-weight: 600; font-size: 15px; color: #111827;">3,800 RON</div>
+                                    </td>
+                <td>
+                                            <span class="status expired" style="background: #fee2e2; color: #991b1b; text-decoration: none; border: none;">Neplătit</span>
+                                    </td>
+                <td>
+                    <button class="btn-secondary profile-btn-staff" data-id="5" style="padding: 6px 12px; font-size: 12px;">
+                        <i class="fa-solid fa-folder-open"></i> Dosar HR
+                    </button>
+                </td>
+            </tr>
+                                </tbody>
+    </table>
+</div>
+
+<div id="staffCalendar" style="margin-top: 32px; background: white; padding: 20px; border-radius: 12px; border: 1px solid var(--border-color);"></div>

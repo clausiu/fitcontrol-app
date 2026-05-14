@@ -1,0 +1,2434 @@
+<br />
+<font size='1'><table class='xdebug-error xe-notice' dir='ltr' border='1' cellspacing='0' cellpadding='1'>
+<tr><th align='left' bgcolor='#f57900' colspan="5"><span style='background-color: #cc0000; color: #fce94f; font-size: x-large;'>( ! )</span> Notice: session_start(): Ignoring session_start() because a session is already active (started from C:\wamp64\www\FITNES_APP\api\export_static.php on line 2) in C:\wamp64\www\FITNES_APP\views\members.php on line <i>2</i></th></tr>
+<tr><th align='left' bgcolor='#e9b96e' colspan='5'>Call Stack</th></tr>
+<tr><th align='center' bgcolor='#eeeeec'>#</th><th align='left' bgcolor='#eeeeec'>Time</th><th align='left' bgcolor='#eeeeec'>Memory</th><th align='left' bgcolor='#eeeeec'>Function</th><th align='left' bgcolor='#eeeeec'>Location</th></tr>
+<tr><td bgcolor='#eeeeec' align='center'>1</td><td bgcolor='#eeeeec' align='center'>0.0000</td><td bgcolor='#eeeeec' align='right'>447720</td><td bgcolor='#eeeeec'>{main}(  )</td><td title='C:\wamp64\www\FITNES_APP\api\export_static.php' bgcolor='#eeeeec'>...\export_static.php<b>:</b>0</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>2</td><td bgcolor='#eeeeec' align='center'>0.0575</td><td bgcolor='#eeeeec' align='right'>648592</td><td bgcolor='#eeeeec'>include( <font color='#00bb00'>'C:\wamp64\www\FITNES_APP\views\members.php</font> )</td><td title='C:\wamp64\www\FITNES_APP\api\export_static.php' bgcolor='#eeeeec'>...\export_static.php<b>:</b>42</td></tr>
+<tr><td bgcolor='#eeeeec' align='center'>3</td><td bgcolor='#eeeeec' align='center'>0.0575</td><td bgcolor='#eeeeec' align='right'>648592</td><td bgcolor='#eeeeec'><a href='http://www.php.net/function.session-start' target='_new'>session_start</a>(  )</td><td title='C:\wamp64\www\FITNES_APP\views\members.php' bgcolor='#eeeeec'>...\members.php<b>:</b>2</td></tr>
+</table></font>
+
+<!-- Bulk Actions Toolbar (Hidden initially) -->
+<div id="bulkActionsToolbar" style="display: none; background: #111827; color: white; padding: 12px 24px; border-radius: 8px; margin-bottom: 24px; align-items: center; justify-content: space-between;">
+    <div style="font-weight: 600;"><span id="bulkCount">0</span> membri selectați</div>
+    <div style="display: flex; gap: 12px;">
+        <button class="btn-secondary bulk-action-btn" data-action="cancel" style="padding: 6px 16px; border: none; background: white; color: #dc2626;">
+            <i class="fa-solid fa-ban"></i> Anulează Abonamentele
+        </button>
+        <button class="btn-text" id="clearBulkSelection" style="color: #9ca3af; padding: 6px;">Renunță</button>
+    </div>
+</div>
+
+<div class="table-container">
+    <div class="table-header" style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: space-between;">
+        <h2 style="display: flex; align-items: center;">Gestionează Membrii</h2>
+        <div style="display: flex; gap: 12px;">
+            <select id="membersSort" style="padding: 8px; border: 1px solid var(--border-color); border-radius: 6px; font-family: inherit;">
+                <option value="name-asc">Nume (A-Z)</option>
+                <option value="name-desc">Nume (Z-A)</option>
+                <option value="plan-asc">Abonament (A-Z)</option>
+                <option value="plan-desc">Abonament (Z-A)</option>
+            </select>
+            <input type="text" id="searchInput" class="search-input" placeholder="Caută după nume, email, telefon...">
+        </div>
+    </div>
+    <table id="membersTable">
+        <thead>
+            <tr>
+                                <th style="width: 40px; text-align: center;"><input type="checkbox" id="selectAllCheckbox"></th>
+                                <th>Membru</th>
+                <th>Contact</th>
+                <th>Abonament Curent</th>
+                <th>Status</th>
+                <th>Acțiuni</th>
+            </tr>
+        </thead>
+        <tbody id="membersTableBody">
+                        <tr class="member-row" 
+                data-search="adelin dumbrava adelin@example.com 0762537142"
+                data-name="adelin dumbrava"
+                data-plan="premium - 3 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="51">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">AD</div>
+                        <div>
+                            <div class="member-name">Adelin Dumbrava</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 14.05.2026</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>adelin@example.com</div>
+                        <div style="color: var(--text-muted);">0762537142</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Premium - 3 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 14.05.26 - 12.08.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="51"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40762537142?text=Salut+Adelin%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="51">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="51" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="51">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="andrei stoica andrei.stoica3@example.com 0781696467"
+                data-name="andrei stoica"
+                data-plan="vip - 12 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="3">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">AS</div>
+                        <div>
+                            <div class="member-name">Andrei Stoica</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 08.05.2023</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>andrei.stoica3@example.com</div>
+                        <div style="color: var(--text-muted);">0781696467</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">VIP - 12 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 25.03.26 - 25.03.27                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="3"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40781696467?text=Salut+Andrei%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="3">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="3" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="3">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="andrei radu andrei.radu38@example.com 0760334791"
+                data-name="andrei radu"
+                data-plan="basic - 1 lună"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="38">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">AR</div>
+                        <div>
+                            <div class="member-name">Andrei Radu</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 15.03.2026</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>andrei.radu38@example.com</div>
+                        <div style="color: var(--text-muted);">0760334791</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Basic - 1 Lună</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 03.05.26 - 02.06.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="38"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40760334791?text=Salut+Andrei%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="38">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="38" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="38">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="andrei matei andrei.matei37@example.com 0756094703"
+                data-name="andrei matei"
+                data-plan="vip - 12 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="37">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">AM</div>
+                        <div>
+                            <div class="member-name">Andrei Matei</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 15.04.2025</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>andrei.matei37@example.com</div>
+                        <div style="color: var(--text-muted);">0756094703</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">VIP - 12 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 08.07.25 - 08.07.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="37"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40756094703?text=Salut+Andrei%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="37">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="37" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="37">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="andrei stan andrei.stan25@example.com 0767148706"
+                data-name="andrei stan"
+                data-plan="basic - 1 lună"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="25">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">AS</div>
+                        <div>
+                            <div class="member-name">Andrei Stan</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 01.12.2025</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>andrei.stan25@example.com</div>
+                        <div style="color: var(--text-muted);">0767148706</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Basic - 1 Lună</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 06.05.26 - 05.06.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="25"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40767148706?text=Salut+Andrei%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="25">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="25" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="25">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="andrei matei andrei.matei36@example.com 0713465108"
+                data-name="andrei matei"
+                data-plan="vip - 12 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="36">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">AM</div>
+                        <div>
+                            <div class="member-name">Andrei Matei</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 25.04.2025</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>andrei.matei36@example.com</div>
+                        <div style="color: var(--text-muted);">0713465108</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">VIP - 12 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 29.07.25 - 29.07.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="36"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40713465108?text=Salut+Andrei%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="36">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="36" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="36">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="andrei popescu andrei.popescu19@example.com 0745142770"
+                data-name="andrei popescu"
+                data-plan="vip - 12 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="19">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">AP</div>
+                        <div>
+                            <div class="member-name">Andrei Popescu</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 30.04.2021</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>andrei.popescu19@example.com</div>
+                        <div style="color: var(--text-muted);">0745142770</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">VIP - 12 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 14.09.25 - 14.09.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="19"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40745142770?text=Salut+Andrei%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="19">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="19" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="19">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="andrei gheorghe andrei.gheorghe27@example.com 0720075952"
+                data-name="andrei gheorghe"
+                data-plan="premium - 3 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="27">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">AG</div>
+                        <div>
+                            <div class="member-name">Andrei Gheorghe</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 15.01.2026</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>andrei.gheorghe27@example.com</div>
+                        <div style="color: var(--text-muted);">0720075952</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Premium - 3 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 14.05.26 - 12.08.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="27"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40720075952?text=Salut+Andrei%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="27">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="27" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="27">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="claudiu deatc claudiudeatc6@gmail.com 0787374622"
+                data-name="claudiu deatc"
+                data-plan="vip - 12 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="52">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">CD</div>
+                        <div>
+                            <div class="member-name">Claudiu Deatc</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 14.05.2026</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>claudiudeatc6@gmail.com</div>
+                        <div style="color: var(--text-muted);">0787374622</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">VIP - 12 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 14.05.26 - 14.05.27                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="52"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40787374622?text=Salut+Claudiu%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="52">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="52" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="52">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="diana ciobanu diana.ciobanu4@example.com 0786952175"
+                data-name="diana ciobanu"
+                data-plan="premium - 3 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="4">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">DC</div>
+                        <div>
+                            <div class="member-name">Diana Ciobanu</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 16.02.2024</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>diana.ciobanu4@example.com</div>
+                        <div style="color: var(--text-muted);">0786952175</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Premium - 3 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 20.03.26 - 18.06.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="4"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40786952175?text=Salut+Diana%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="4">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="4" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="4">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="diana gheorghe diana.gheorghe48@example.com 0725867154"
+                data-name="diana gheorghe"
+                data-plan="premium - 3 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="48">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">DG</div>
+                        <div>
+                            <div class="member-name">Diana Gheorghe</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 01.02.2026</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>diana.gheorghe48@example.com</div>
+                        <div style="color: var(--text-muted);">0725867154</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Premium - 3 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 04.02.26 - 05.05.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status expired">Inactiv</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="48"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40725867154?text=Salut+Diana%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+a+expirat." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="48">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="48" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="48">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="diana radu diana.radu44@example.com 0757423551"
+                data-name="diana radu"
+                data-plan="premium - 3 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="44">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">DR</div>
+                        <div>
+                            <div class="member-name">Diana Radu</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 01.02.2026</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>diana.radu44@example.com</div>
+                        <div style="color: var(--text-muted);">0757423551</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Premium - 3 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 06.02.26 - 07.05.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status expired">Inactiv</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="44"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40757423551?text=Salut+Diana%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+a+expirat." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="44">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="44" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="44">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="diana stan diana.stan40@example.com 0717048694"
+                data-name="diana stan"
+                data-plan="premium - 3 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="40">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">DS</div>
+                        <div>
+                            <div class="member-name">Diana Stan</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 04.02.2026</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>diana.stan40@example.com</div>
+                        <div style="color: var(--text-muted);">0717048694</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Premium - 3 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 09.05.26 - 07.08.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="40"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40717048694?text=Salut+Diana%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="40">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="40" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="40">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="diana radu diana.radu34@example.com 0729348086"
+                data-name="diana radu"
+                data-plan="basic - 1 lună"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="34">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">DR</div>
+                        <div>
+                            <div class="member-name">Diana Radu</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 07.04.2026</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>diana.radu34@example.com</div>
+                        <div style="color: var(--text-muted);">0729348086</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Basic - 1 Lună</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 30.04.26 - 30.05.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="34"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40729348086?text=Salut+Diana%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="34">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="34" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="34">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="elena matei elena.matei13@example.com 0719132123"
+                data-name="elena matei"
+                data-plan="premium - 3 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="13">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">EM</div>
+                        <div>
+                            <div class="member-name">Elena Matei</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 27.01.2024</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>elena.matei13@example.com</div>
+                        <div style="color: var(--text-muted);">0719132123</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Premium - 3 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 20.02.26 - 21.05.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="13"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40719132123?text=Salut+Elena%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="13">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="13" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="13">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="elena stoica elena.stoica49@example.com 0717675451"
+                data-name="elena stoica"
+                data-plan="basic - 1 lună"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="49">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">ES</div>
+                        <div>
+                            <div class="member-name">Elena Stoica</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 04.04.2026</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>elena.stoica49@example.com</div>
+                        <div style="color: var(--text-muted);">0717675451</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Basic - 1 Lună</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 20.04.26 - 20.05.26                        </div>
+                                        <div style="margin-top: 4px; font-size: 11px; color: #d97706; font-weight: 600;"><i class="fa-solid fa-clock"></i> Expiră în 5 zile</div>                </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="49"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40717675451?text=Salut+Elena%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="49">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="49" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="49">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="elena ionescu elena.ionescu21@example.com 0736663905"
+                data-name="elena ionescu"
+                data-plan="basic - 1 lună"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="21">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">EI</div>
+                        <div>
+                            <div class="member-name">Elena Ionescu</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 07.03.2026</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>elena.ionescu21@example.com</div>
+                        <div style="color: var(--text-muted);">0736663905</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Basic - 1 Lună</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 01.05.26 - 31.05.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="21"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40736663905?text=Salut+Elena%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="21">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="21" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="21">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="elena marin elena.marin46@example.com 0768051834"
+                data-name="elena marin"
+                data-plan="premium - 3 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="46">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">EM</div>
+                        <div>
+                            <div class="member-name">Elena Marin</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 20.01.2026</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>elena.marin46@example.com</div>
+                        <div style="color: var(--text-muted);">0768051834</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Premium - 3 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 20.04.26 - 19.07.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="46"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40768051834?text=Salut+Elena%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="46">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="46" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="46">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="elena dumitru elena.dumitru11@example.com 0724236863"
+                data-name="elena dumitru"
+                data-plan="vip - 12 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="11">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">ED</div>
+                        <div>
+                            <div class="member-name">Elena Dumitru</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 19.04.2018</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>elena.dumitru11@example.com</div>
+                        <div style="color: var(--text-muted);">0724236863</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">VIP - 12 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 27.03.26 - 27.03.27                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="11"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40724236863?text=Salut+Elena%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="11">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="11" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="11">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="elena gheorghe elena.gheorghe26@example.com 0739468755"
+                data-name="elena gheorghe"
+                data-plan="basic - 1 lună"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="26">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">EG</div>
+                        <div>
+                            <div class="member-name">Elena Gheorghe</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 17.03.2026</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>elena.gheorghe26@example.com</div>
+                        <div style="color: var(--text-muted);">0739468755</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Basic - 1 Lună</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 04.05.26 - 03.06.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="26"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40739468755?text=Salut+Elena%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="26">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="26" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="26">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="elena gheorghe elena.gheorghe20@example.com 0762885994"
+                data-name="elena gheorghe"
+                data-plan="basic - 1 lună"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="20">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">EG</div>
+                        <div>
+                            <div class="member-name">Elena Gheorghe</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 10.09.2025</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>elena.gheorghe20@example.com</div>
+                        <div style="color: var(--text-muted);">0762885994</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Basic - 1 Lună</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 01.05.26 - 31.05.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="20"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40762885994?text=Salut+Elena%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="20">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="20" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="20">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="elena dumitru elena.dumitru29@example.com 0737144473"
+                data-name="elena dumitru"
+                data-plan="vip - 12 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="29">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">ED</div>
+                        <div>
+                            <div class="member-name">Elena Dumitru</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 19.04.2025</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>elena.dumitru29@example.com</div>
+                        <div style="color: var(--text-muted);">0737144473</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">VIP - 12 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 01.01.26 - 01.01.27                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="29"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40737144473?text=Salut+Elena%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="29">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="29" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="29">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="george ciobanu george.ciobanu12@example.com 0729333579"
+                data-name="george ciobanu"
+                data-plan="basic - 1 lună"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="12">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">GC</div>
+                        <div>
+                            <div class="member-name">George Ciobanu</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 22.01.2026</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>george.ciobanu12@example.com</div>
+                        <div style="color: var(--text-muted);">0729333579</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Basic - 1 Lună</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 13.04.26 - 13.05.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status expired">Inactiv</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="12"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40729333579?text=Salut+George%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+a+expirat." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="12">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="12" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="12">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="ioana stoica ioana.stoica15@example.com 0777836754"
+                data-name="ioana stoica"
+                data-plan="premium - 3 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="15">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">IS</div>
+                        <div>
+                            <div class="member-name">Ioana Stoica</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 07.02.2025</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>ioana.stoica15@example.com</div>
+                        <div style="color: var(--text-muted);">0777836754</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Premium - 3 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 08.05.26 - 06.08.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="15"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40777836754?text=Salut+Ioana%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="15">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="15" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="15">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="ioana ciobanu ioana.ciobanu17@example.com 0718078398"
+                data-name="ioana ciobanu"
+                data-plan="vip - 12 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="17">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">IC</div>
+                        <div>
+                            <div class="member-name">Ioana Ciobanu</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 27.04.2023</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>ioana.ciobanu17@example.com</div>
+                        <div style="color: var(--text-muted);">0718078398</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">VIP - 12 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 17.09.25 - 17.09.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="17"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40718078398?text=Salut+Ioana%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="17">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="17" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="17">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="ioana radu ioana.radu24@example.com 0781301123"
+                data-name="ioana radu"
+                data-plan="premium - 3 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="24">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">IR</div>
+                        <div>
+                            <div class="member-name">Ioana Radu</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 16.10.2025</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>ioana.radu24@example.com</div>
+                        <div style="color: var(--text-muted);">0781301123</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Premium - 3 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 03.02.26 - 04.05.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status expired">Inactiv</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="24"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40781301123?text=Salut+Ioana%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+a+expirat." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="24">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="24" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="24">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="ioana marin ioana.marin47@example.com 0766400150"
+                data-name="ioana marin"
+                data-plan="premium - 3 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="47">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">IM</div>
+                        <div>
+                            <div class="member-name">Ioana Marin</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 05.02.2026</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>ioana.marin47@example.com</div>
+                        <div style="color: var(--text-muted);">0766400150</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Premium - 3 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 28.01.26 - 28.04.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status expired">Inactiv</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="47"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40766400150?text=Salut+Ioana%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+a+expirat." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="47">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="47" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="47">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="ioana stan ioana.stan39@example.com 0724386582"
+                data-name="ioana stan"
+                data-plan="premium - 3 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="39">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">IS</div>
+                        <div>
+                            <div class="member-name">Ioana Stan</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 24.01.2026</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>ioana.stan39@example.com</div>
+                        <div style="color: var(--text-muted);">0724386582</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Premium - 3 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 10.04.26 - 09.07.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="39"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40724386582?text=Salut+Ioana%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="39">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="39" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="39">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="ioana popescu ioana.popescu41@example.com 0755033837"
+                data-name="ioana popescu"
+                data-plan="basic - 1 lună"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="41">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">IP</div>
+                        <div>
+                            <div class="member-name">Ioana Popescu</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 21.03.2026</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>ioana.popescu41@example.com</div>
+                        <div style="color: var(--text-muted);">0755033837</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Basic - 1 Lună</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 27.03.26 - 26.04.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status expired">Inactiv</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="41"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40755033837?text=Salut+Ioana%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+a+expirat." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="41">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="41" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="41">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="ion popescu ion.popescu30@example.com 0751287056"
+                data-name="ion popescu"
+                data-plan="basic - 1 lună"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="30">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">IP</div>
+                        <div>
+                            <div class="member-name">Ion Popescu</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 07.04.2026</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>ion.popescu30@example.com</div>
+                        <div style="color: var(--text-muted);">0751287056</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Basic - 1 Lună</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 25.04.26 - 25.05.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="30"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40751287056?text=Salut+Ion%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="30">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="30" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="30">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="ion marin ion.marin33@example.com 0765125054"
+                data-name="ion marin"
+                data-plan="basic - 1 lună"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="33">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">IM</div>
+                        <div>
+                            <div class="member-name">Ion Marin</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 18.03.2026</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>ion.marin33@example.com</div>
+                        <div style="color: var(--text-muted);">0765125054</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Basic - 1 Lună</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 01.05.26 - 31.05.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="33"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40765125054?text=Salut+Ion%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="33">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="33" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="33">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="ion stoica ion.stoica35@example.com 0778665619"
+                data-name="ion stoica"
+                data-plan="basic - 1 lună"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="35">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">IS</div>
+                        <div>
+                            <div class="member-name">Ion Stoica</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 23.03.2026</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>ion.stoica35@example.com</div>
+                        <div style="color: var(--text-muted);">0778665619</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Basic - 1 Lună</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 27.04.26 - 27.05.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="35"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40778665619?text=Salut+Ion%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="35">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="35" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="35">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="ion popescu ion.popescu14@example.com 0753004243"
+                data-name="ion popescu"
+                data-plan="basic - 1 lună"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="14">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">IP</div>
+                        <div>
+                            <div class="member-name">Ion Popescu</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 05.01.2026</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>ion.popescu14@example.com</div>
+                        <div style="color: var(--text-muted);">0753004243</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Basic - 1 Lună</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 30.03.26 - 29.04.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status expired">Inactiv</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="14"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40753004243?text=Salut+Ion%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+a+expirat." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="14">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="14" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="14">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="maria popescu maria.popescu32@example.com 0716442705"
+                data-name="maria popescu"
+                data-plan="premium - 3 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="32">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">MP</div>
+                        <div>
+                            <div class="member-name">Maria Popescu</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 01.02.2026</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>maria.popescu32@example.com</div>
+                        <div style="color: var(--text-muted);">0716442705</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Premium - 3 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 05.04.26 - 04.07.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="32"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40716442705?text=Salut+Maria%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="32">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="32" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="32">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="maria popescu maria.popescu16@example.com 0738946457"
+                data-name="maria popescu"
+                data-plan="vip - 12 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="16">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">MP</div>
+                        <div>
+                            <div class="member-name">Maria Popescu</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 06.05.2017</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>maria.popescu16@example.com</div>
+                        <div style="color: var(--text-muted);">0738946457</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">VIP - 12 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 07.05.26 - 07.05.27                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="16"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40738946457?text=Salut+Maria%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="16">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="16" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="16">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="maria stan maria.stan7@example.com 0798439977"
+                data-name="maria stan"
+                data-plan="vip - 12 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="7">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">MS</div>
+                        <div>
+                            <div class="member-name">Maria Stan</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 23.04.2016</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>maria.stan7@example.com</div>
+                        <div style="color: var(--text-muted);">0798439977</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">VIP - 12 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 24.11.25 - 24.11.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="7"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40798439977?text=Salut+Maria%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="7">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="7" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="7">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="maria radu maria.radu42@example.com 0732555550"
+                data-name="maria radu"
+                data-plan="premium - 3 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="42">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">MR</div>
+                        <div>
+                            <div class="member-name">Maria Radu</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 18.01.2026</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>maria.radu42@example.com</div>
+                        <div style="color: var(--text-muted);">0732555550</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Premium - 3 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 24.03.26 - 22.06.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="42"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40732555550?text=Salut+Maria%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="42">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="42" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="42">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="maria gheorghe maria.gheorghe9@example.com 0746504771"
+                data-name="maria gheorghe"
+                data-plan="premium - 3 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="9">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">MG</div>
+                        <div>
+                            <div class="member-name">Maria Gheorghe</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 12.08.2025</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>maria.gheorghe9@example.com</div>
+                        <div style="color: var(--text-muted);">0746504771</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Premium - 3 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 21.02.26 - 22.05.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="9"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40746504771?text=Salut+Maria%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="9">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="9" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="9">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="maria matei maria.matei1@example.com 0785935304"
+                data-name="maria matei"
+                data-plan="vip - 12 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="1">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">MM</div>
+                        <div>
+                            <div class="member-name">Maria Matei</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 22.04.2018</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>maria.matei1@example.com</div>
+                        <div style="color: var(--text-muted);">0785935304</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">VIP - 12 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 31.08.25 - 31.08.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="1"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40785935304?text=Salut+Maria%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="1">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="1" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="1">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="mihai dumitru mihai.dumitru43@example.com 0732951422"
+                data-name="mihai dumitru"
+                data-plan="premium - 3 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="43">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">MD</div>
+                        <div>
+                            <div class="member-name">Mihai Dumitru</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 18.01.2026</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>mihai.dumitru43@example.com</div>
+                        <div style="color: var(--text-muted);">0732951422</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Premium - 3 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 07.04.26 - 06.07.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="43"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40732951422?text=Salut+Mihai%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="43">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="43" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="43">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="mihai radu mihai.radu5@example.com 0724943522"
+                data-name="mihai radu"
+                data-plan="vip - 12 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="5">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">MR</div>
+                        <div>
+                            <div class="member-name">Mihai Radu</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 10.05.2019</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>mihai.radu5@example.com</div>
+                        <div style="color: var(--text-muted);">0724943522</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">VIP - 12 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 01.06.25 - 01.06.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="5"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40724943522?text=Salut+Mihai%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="5">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="5" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="5">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="mihai ionescu mihai.ionescu2@example.com 0771718022"
+                data-name="mihai ionescu"
+                data-plan="premium - 3 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="2">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">MI</div>
+                        <div>
+                            <div class="member-name">Mihai Ionescu</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 24.10.2025</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>mihai.ionescu2@example.com</div>
+                        <div style="color: var(--text-muted);">0771718022</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Premium - 3 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 29.04.26 - 28.07.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="2"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40771718022?text=Salut+Mihai%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="2">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="2" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="2">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="test test test@gmail.com 0711111111"
+                data-name="test test"
+                data-plan="basic - 1 lună"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="53">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">TT</div>
+                        <div>
+                            <div class="member-name">TEST TEST</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 14.05.2026</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>TEST@GMAIL.COM</div>
+                        <div style="color: var(--text-muted);">0711111111</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Basic - 1 Lună</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 14.05.26 - 13.06.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="53"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40711111111?text=Salut+TEST%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="53">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="53" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="53">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="vasile popescu vasile.popescu31@example.com 0727716395"
+                data-name="vasile popescu"
+                data-plan="premium - 3 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="31">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">VP</div>
+                        <div>
+                            <div class="member-name">Vasile Popescu</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 15.01.2026</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>vasile.popescu31@example.com</div>
+                        <div style="color: var(--text-muted);">0727716395</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Premium - 3 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 29.03.26 - 27.06.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="31"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40727716395?text=Salut+Vasile%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="31">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="31" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="31">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="vasile stan vasile.stan22@example.com 0711851024"
+                data-name="vasile stan"
+                data-plan="basic - 1 lună"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="22">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">VS</div>
+                        <div>
+                            <div class="member-name">Vasile Stan</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 20.08.2025</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>vasile.stan22@example.com</div>
+                        <div style="color: var(--text-muted);">0711851024</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Basic - 1 Lună</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 26.04.26 - 26.05.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="22"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40711851024?text=Salut+Vasile%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="22">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="22" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="22">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="vasile dumitru vasile.dumitru18@example.com 0776188468"
+                data-name="vasile dumitru"
+                data-plan="premium - 3 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="18">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">VD</div>
+                        <div>
+                            <div class="member-name">Vasile Dumitru</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 30.10.2025</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>vasile.dumitru18@example.com</div>
+                        <div style="color: var(--text-muted);">0776188468</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Premium - 3 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 26.03.26 - 24.06.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="18"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40776188468?text=Salut+Vasile%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="18">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="18" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="18">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="vasile gheorghe vasile.gheorghe28@example.com 0726193002"
+                data-name="vasile gheorghe"
+                data-plan="vip - 12 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="28">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">VG</div>
+                        <div>
+                            <div class="member-name">Vasile Gheorghe</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 18.04.2025</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>vasile.gheorghe28@example.com</div>
+                        <div style="color: var(--text-muted);">0726193002</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">VIP - 12 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 18.06.25 - 18.06.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="28"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40726193002?text=Salut+Vasile%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="28">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="28" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="28">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="vasile matei vasile.matei23@example.com 0750993199"
+                data-name="vasile matei"
+                data-plan="basic - 1 lună"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="23">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">VM</div>
+                        <div>
+                            <div class="member-name">Vasile Matei</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 29.10.2025</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>vasile.matei23@example.com</div>
+                        <div style="color: var(--text-muted);">0750993199</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Basic - 1 Lună</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 07.05.26 - 06.06.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="23"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40750993199?text=Salut+Vasile%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="23">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="23" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="23">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="vasile ciobanu vasile.ciobanu10@example.com 0786005462"
+                data-name="vasile ciobanu"
+                data-plan="premium - 3 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="10">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">VC</div>
+                        <div>
+                            <div class="member-name">Vasile Ciobanu</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 11.05.2024</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>vasile.ciobanu10@example.com</div>
+                        <div style="color: var(--text-muted);">0786005462</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Premium - 3 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 19.04.26 - 18.07.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="10"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40786005462?text=Salut+Vasile%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="10">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="10" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="10">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="vasile popescu vasile.popescu45@example.com 0770393503"
+                data-name="vasile popescu"
+                data-plan="premium - 3 luni"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="45">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">VP</div>
+                        <div>
+                            <div class="member-name">Vasile Popescu</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 30.01.2026</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>vasile.popescu45@example.com</div>
+                        <div style="color: var(--text-muted);">0770393503</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Premium - 3 Luni</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 26.01.26 - 26.04.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status expired">Inactiv</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="45"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40770393503?text=Salut+Vasile%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+a+expirat." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="45">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="45" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="45">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="vasile ciobanu vasile.ciobanu8@example.com 0735753703"
+                data-name="vasile ciobanu"
+                data-plan="basic - 1 lună"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="8">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">VC</div>
+                        <div>
+                            <div class="member-name">Vasile Ciobanu</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 14.02.2026</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>vasile.ciobanu8@example.com</div>
+                        <div style="color: var(--text-muted);">0735753703</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Basic - 1 Lună</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 20.04.26 - 20.05.26                        </div>
+                                        <div style="margin-top: 4px; font-size: 11px; color: #d97706; font-weight: 600;"><i class="fa-solid fa-clock"></i> Expiră în 5 zile</div>                </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="8"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40735753703?text=Salut+Vasile%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="8">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="8" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="8">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="vasile ciobanu vasile.ciobanu6@example.com 0752221932"
+                data-name="vasile ciobanu"
+                data-plan="basic - 1 lună"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="6">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">VC</div>
+                        <div>
+                            <div class="member-name">Vasile Ciobanu</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 01.11.2025</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>vasile.ciobanu6@example.com</div>
+                        <div style="color: var(--text-muted);">0752221932</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Basic - 1 Lună</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 21.04.26 - 21.05.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="6"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40752221932?text=Salut+Vasile%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="6">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="6" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="6">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                        <tr class="member-row" 
+                data-search="vasile radu vasile.radu50@example.com 0774948642"
+                data-name="vasile radu"
+                data-plan="basic - 1 lună"
+            >
+                                <td style="text-align: center;">
+                    <input type="checkbox" class="member-checkbox" value="50">
+                </td>
+                                <td>
+                    <div class="member-info">
+                        <div class="member-avatar">VR</div>
+                        <div>
+                            <div class="member-name">Vasile Radu</div>
+                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Membru din: 28.03.2026</div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-size: 13px;">
+                        <div>vasile.radu50@example.com</div>
+                        <div style="color: var(--text-muted);">0774948642</div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 500;">Basic - 1 Lună</div>
+                                            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                            <i class="fa-solid fa-calendar-days"></i> 03.05.26 - 02.06.26                        </div>
+                                                        </td>
+                <td>
+                                            <span class="status active">Activ</span>
+                                    </td>
+                <td>
+                    <div class="dropdown">
+                        <button class="btn-text dropdown-toggle"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item profile-btn" data-id="50"><i class="fa-solid fa-user"></i> Vezi Profil</a>
+                            <a href="https://wa.me/40774948642?text=Salut+Vasile%2C+te+a%C8%99tept%C4%83m+pe+la+FitControl%21+Abonamentul+t%C4%83u+expir%C4%83+%C3%AEn+cur%C3%A2nd." target="_blank" class="dropdown-item"><i class="fa-brands fa-whatsapp"></i> Notificare WhatsApp</a>
+                            <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 4px 0;">
+                            <a href="#" class="dropdown-item action-btn" data-action="renew" data-id="50">Reînnoiește</a>
+                                                        <a href="#" class="dropdown-item action-btn" data-action="upgrade" data-id="50" data-memberships='[{"id":1,"name":"Basic - 1 Lun\u0103","price":"150.00","duration_days":30},{"id":2,"name":"Premium - 3 Luni","price":"400.00","duration_days":90},{"id":3,"name":"VIP - 12 Luni","price":"1200.00","duration_days":365}]'>Upgrade</a>
+                            <a href="#" class="dropdown-item action-btn text-danger" data-action="cancel" data-id="50">Anulează</a>
+                                                    </div>
+                    </div>
+                </td>
+            </tr>
+                    </tbody>
+    </table>
+</div>
